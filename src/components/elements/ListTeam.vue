@@ -27,7 +27,7 @@
                             <td>{{ team.body.country }}</td>
                             <td>
                                 <div>
-                                    <button type="button" @click="remove(team)" class="btn btn-danger btn-sm">
+                                    <button type="button" @click="removeTeam(team)" class="btn btn-danger btn-sm">
                                     <span class="glyphicon glyphicon-remove-circle"></span> Remove
                                     </button>
                                 </div>
@@ -40,20 +40,16 @@
     </div>
 </template>
 <script>
+    import { mapGetters, mapActions } from 'vuex'
+
     export default{
-        methods: {
-            remove(team) {
-                this.$store.dispatch('removeTeam', team)
-            }
-        },
-        computed: {
-            teams() {
-                return this.$store.getters.teams
-            },
-            newTeam() {
-                return this.$store.getters.newTeam
-            }
-        }
+        methods: mapActions([
+            'removeTeam'
+        ]),
+        computed: mapGetters([
+            'teams',
+            'newTeam'
+        ])
     }
 </script>
 <style>
