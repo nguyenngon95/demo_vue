@@ -22,7 +22,7 @@
     </div>    
 </template>
 <script>
-import Vuex from 'vuex'
+import { Vuex, mapGetters } from 'vuex'
 
 import List from '@/components/elements/ListPlayer'
 
@@ -48,10 +48,8 @@ export default {
             this.$refs.country_player.value = ''
         }
     },
-    computed: {
-        newPlayer() {
-            return this.$store.getters.newPlayer
-        }
-    }
+    computed: mapGetters([
+        'newPlayer'
+    ])
 }
 </script>

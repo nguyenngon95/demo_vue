@@ -22,7 +22,7 @@
     </div>    
 </template>
 <script>
-import Vuex from 'vuex'
+import { Vuex, mapGetters } from 'vuex'
 
 import List from '@/components/elements/ListTeam'
 
@@ -48,10 +48,8 @@ export default {
             this.$refs.country_team.value = ''
         }
     },
-    computed: {
-        newRecord() {
-            return this.$store.getters.newTeam
-        }
-    }
+    computed: mapGetters([
+        'newTeam'
+    ])
 }
 </script>
